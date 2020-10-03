@@ -1,4 +1,4 @@
-package com.natchen.accounting.model;
+package com.natchen.accounting.model.service;
 
 public class Greeting {
     private final Long id;
