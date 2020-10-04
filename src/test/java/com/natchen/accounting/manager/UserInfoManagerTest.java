@@ -1,7 +1,7 @@
 package com.natchen.accounting.manager;
 
 import com.natchen.accounting.converter.p2c.UserInfoP2CConverter;
-import com.natchen.accounting.dao.UserInfoDAO;
+import com.natchen.accounting.dao.UserInfoDao;
 import com.natchen.accounting.exception.ResourceNotFoundException;
 import com.natchen.accounting.model.persistence.UserInfo;
 import lombok.val;
@@ -21,7 +21,7 @@ public class UserInfoManagerTest {
     private UserInfoManager userInfoManager;
 
     @Mock
-    private UserInfoDAO userInfoDAO;
+    private UserInfoDao userInfoDAO;
 
     @BeforeEach
     void setUp() {

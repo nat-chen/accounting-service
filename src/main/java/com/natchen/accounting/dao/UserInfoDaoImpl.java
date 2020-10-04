@@ -6,11 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class UserInfoDAOImpl implements UserInfoDAO {
+public class UserInfoDaoImpl implements UserInfoDao {
     private final UserInfoMapper userInfoMapper;
 
     @Autowired
-    public UserInfoDAOImpl(UserInfoMapper userInfoMapper) {
+    public UserInfoDaoImpl(UserInfoMapper userInfoMapper) {
         this.userInfoMapper = userInfoMapper;
     }
 

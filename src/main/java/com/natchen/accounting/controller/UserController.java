@@ -28,6 +28,11 @@ public class UserController {
         this.userInfoC2SConverter = userInfoC2SConverter;
     }
 
+    /**
+     * GET v1.0/users/{id}.
+     * @param userId user's id
+     * @return specified user's info
+     */
     @GetMapping("/{id}")
     public ResponseEntity<UserInfo> getUserInfoByUserId(@PathVariable("id") Long userId) {
         log.info("Get user info by user id {}", userId);

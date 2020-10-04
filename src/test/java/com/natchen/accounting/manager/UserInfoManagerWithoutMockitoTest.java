@@ -1,7 +1,7 @@
 package com.natchen.accounting.manager;
 
 import com.natchen.accounting.converter.p2c.UserInfoP2CConverter;
-import com.natchen.accounting.dao.UserInfoDAOImpl;
+import com.natchen.accounting.dao.UserInfoDaoImpl;
 import com.natchen.accounting.exception.ResourceNotFoundException;
 import com.natchen.accounting.utils.UserInfoMapperTestImpl;
 import lombok.val;
@@ -18,7 +18,7 @@ public class UserInfoManagerWithoutMockitoTest {
     void setUp() {
         val userMapper = new UserInfoMapperTestImpl();
         val userInfoP2CConverter = new UserInfoP2CConverter();
-        val userInfoDao = new UserInfoDAOImpl(userMapper);
+        val userInfoDao = new UserInfoDaoImpl(userMapper);
         userInfoManager = new UserInfoManagerImpl(userInfoDao, userInfoP2CConverter);
     }
 

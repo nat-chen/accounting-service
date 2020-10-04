@@ -16,12 +16,12 @@ import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
-public class UserInfoDAOTest {
+public class UserInfoDaoTest {
     @Mock
     private UserInfoMapper userInfoMapper;
 
     @InjectMocks
-    private UserInfoDAOImpl userInfoDAO;
+    private UserInfoDaoImpl userInfoDAO;
 
     @Test
     public void testGetUserInfoById() {
