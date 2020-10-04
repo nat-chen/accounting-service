@@ -3,7 +3,6 @@ package com.natchen.accounting.controlller;
 import com.natchen.accounting.controller.UserController;
 import com.natchen.accounting.converter.c2s.UserInfoC2SConverter;
 import com.natchen.accounting.exception.GlobalExceptionHandler;
-import com.natchen.accounting.exception.ResourceNotFoundException;
 import com.natchen.accounting.manager.UserInfoManager;
 import com.natchen.accounting.model.common.UserInfo;
 import lombok.val;
@@ -83,14 +82,12 @@ public class UserInfoControllerTest {
     public void testGetUserInfoByUserIdWithInvalidUserId() throws Exception {
         val userId = -100L;
 
-        doThrow(new ResourceNotFoundException(String.format("User %s was not found", userId)))
-                .when(userInfoManager)
-                .getUserInfoByUserId(userId);
-
         mockMvc.perform(get("/v1.0/users/" + userId))
                 .andExpect(status().is4xxClientError())
                 .andExpect(content().contentType("application/json"))
                 .andExpect(content().string("{\"code\":\"INVALID_PARAMETER\",\"errorType\":\"Client\"," +
                         "\"message\":\"The user id -100 is invalid\",\"statusCode\":400}"));
+
+        verify(userInfoManager, never()).getUserInfoByUserId(anyLong());
     }
 }
